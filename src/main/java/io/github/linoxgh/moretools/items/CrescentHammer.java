@@ -162,12 +162,12 @@ public class CrescentHammer extends SimpleSlimefunItem<ItemInteractHandler> impl
                     if (current == 16) { 
                         menu.replaceExistingItem(
                             slotCurrent, 
-                            new CustomItemStack(HeadTexture.CHEST_TERMINAL.getAsItemStack(), "&bChannel ID: &3" + (current + 1))
+                            new CustomItemStack(HeadTexture.CHEST_TERMINAL.getAsItemStack(), "&b信道 ID: &3" + (current + 1))
                         );
                     } else { 
                         menu.replaceExistingItem(
                             slotCurrent, 
-                            new CustomItemStack(ColoredMaterial.WOOL.get(current), "&bChannel ID: &3" + (current + 1))
+                            new CustomItemStack(ColoredMaterial.WOOL.get(current), "&b信道 ID: &3" + (current + 1))
                         );
                     }
                     menu.addMenuClickHandler(slotCurrent, ChestMenuUtils.getEmptyClickHandler());

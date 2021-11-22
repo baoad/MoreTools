@@ -47,7 +47,7 @@ public class MoreTools extends JavaPlugin implements SlimefunAddon {
             Configuration defaultCfg = getConfig().getDefaults();
             if (cfgVersion == null || !cfgVersion.equals(version)) {
             
-                getLogger().log(Level.WARNING, "Your config.yml file is outdated. Updating...");
+                getLogger().log(Level.WARNING, "您的 config.yml 文件已经过期,正在更新...");
                 
                 for (String key : defaultCfg.getKeys(true)) {
                     if (!cfg.contains(key, true)) {
@@ -57,13 +57,13 @@ public class MoreTools extends JavaPlugin implements SlimefunAddon {
                 }
                 cfg.set("version", version);
                 
-                getLogger().log(Level.INFO, "Finished updating config.yml file. Now saving...");
+                getLogger().log(Level.INFO, "已完成 config.yml 文件的更新,现在正在保存...");
                 
                 try {
                     cfg.save(configFile);
-                    getLogger().log(Level.INFO, "Saved config.yml file.");
+                    getLogger().log(Level.INFO, "已保存 config.yml 文件.");
                 } catch (IOException e) {
-                    getLogger().log(Level.SEVERE, "Failed saving config.yml file.", e);
+                    getLogger().log(Level.SEVERE, "保存 config.yml 文件失败.", e);
                     getServer().getPluginManager().disablePlugin(this);
                     return;
                 }
@@ -74,10 +74,10 @@ public class MoreTools extends JavaPlugin implements SlimefunAddon {
             }
         }
       
-        if (debug) getLogger().log(Level.INFO, "Setting up metrics...");
+        if (debug) getLogger().log(Level.INFO, "设定指标...");
         Metrics metrics = new Metrics(this, 8780);
         
-        if (debug) getLogger().log(Level.INFO, "Setting up event listeners...");
+        if (debug) getLogger().log(Level.INFO, "设置事件监听程序...");
         new PlayerListener(this);
         
         setupCategories();
@@ -91,13 +91,13 @@ public class MoreTools extends JavaPlugin implements SlimefunAddon {
     }
     
     private void setupCategories() {
-        if (debug) getLogger().log(Level.INFO, "Setting up categories...");
+        if (debug) getLogger().log(Level.INFO, "设置分类...");
         
         moreToolsItemGroup = new ItemGroup(new NamespacedKey(this, "more_tools_category"), new CustomItemStack(Items.CRESCENT_HAMMER, "&3More Tools"), 4);
     }
     
     private void setupItems() {
-        if (debug) getLogger().log(Level.INFO, "Setting up items...");
+        if (debug) getLogger().log(Level.INFO, "设置物品...");
         
         new CrescentHammer(moreToolsItemGroup, Items.CRESCENT_HAMMER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
             SlimefunItems.TIN_INGOT, null, SlimefunItems.TIN_INGOT,
@@ -108,9 +108,9 @@ public class MoreTools extends JavaPlugin implements SlimefunAddon {
     }
     
     private void setupResearches() {
-        if (debug) getLogger().log(Level.INFO, "Setting up researches...");
+        if (debug) getLogger().log(Level.INFO, "设置研究...");
         
-        registerResearch("crescent_hammer", 7501, "Not A Hammer", 15, Items.CRESCENT_HAMMER);
+        registerResearch("crescent_hammer", 7501, "没有锤子", 15, Items.CRESCENT_HAMMER);
     }
     
     private void registerResearch(String key, int id, String name, int defaultCost, ItemStack... items) {
